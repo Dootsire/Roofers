@@ -1,0 +1,11 @@
+SELECT DISTINCT estab_name
+FROM inspections
+LEFT OUTER JOIN licenses
+ON (inspections.estab_name = licenses.'Business Name')
+WHERE licenses.'Business Name' IS NULL
+
+SELECT distinct estab_name
+FROM inspection
+INNER JOIN clean_licenses
+ON (inspection.dba_name = clean_licenses.BusinessDBA
+    and inspection.mail_zip = clean_licenses.Zip)
